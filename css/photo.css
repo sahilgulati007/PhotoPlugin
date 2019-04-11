@@ -1,0 +1,14 @@
+thead th{
+    background: #7B9608;
+    color: #fff;
+}
+table#example{
+    border-spacing:1px !important;
+}
+tbody tr.even tbody tr.even>.sorting_1{
+    background: #ebeff1 !important;
+}
+div input,div select{
+    width: 100%;
+    height: 30px;
+}

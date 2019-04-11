@@ -25,9 +25,12 @@ function jal_install() {
 	    ptitle text NOT NULL,
 	    pdesc text NULL,
 		pcategory text NOT NULL,
+		platitude text NOT NULL,
+		plongitude text NOT NULL,
 		pcreated date NOT NULL,
 		pstatus tinytext NOT NULL,
-		imagesubmit int NOT NULL, 
+		imagesubmit int NOT NULL,
+		eos tinytext NOT NULL,
 		PRIMARY KEY  (rid)
 	) $charset_collate;";
 
@@ -54,7 +57,7 @@ function at_try_menu() {
         'Photo Insert',//menu titel
         'manage_options',//manage optios
         'Photo_Insert',//slug
-        'employee_insert'//function
+        'photo_insert'//function
     );
     add_submenu_page( null,//parent page slug
         'employee_update',//$page_title
@@ -72,8 +75,24 @@ function at_try_menu() {
     );
 }
 
+function datatable_enqueue_script() {
+    wp_register_script('jquery3','https://code.jquery.com/jquery-3.3.1.js');
+    wp_enqueue_script( 'jquery3');
+    wp_register_script( 'datatablejs', 'https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js' );
+    wp_enqueue_script( 'datatablejs');
+    wp_register_style('datatablecss','https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css');
+    wp_enqueue_style('datatablecss');
+    wp_enqueue_style('photocss',plugin_dir_url( __FILE__ ) . 'css/photo.css');
+//    wp_register_style('bootstrap_style', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
+//    wp_enqueue_style('bootstrap_style');
+    wp_enqueue_script( 'photojs',plugin_dir_url( __FILE__ ) . 'js/photo.js');
+    wp_localize_script( 'photojs', 'ajax_url', admin_url('admin-ajax.php?action=photojs') );
+}
+add_action('wp_enqueue_scripts', 'datatable_enqueue_script');
+add_action( 'admin_enqueue_scripts','datatable_enqueue_script');
+
 define('ROOTDIR', plugin_dir_path(__FILE__));
 require_once(ROOTDIR . 'photo_list.php');
 require_once (ROOTDIR.'photo_insert.php');
-require_once (ROOTDIR.'employee_update.php');
-require_once (ROOTDIR.'employee_delete.php');
+//require_once (ROOTDIR.'employee_update.php');
+//require_once (ROOTDIR.'employee_delete.php');
