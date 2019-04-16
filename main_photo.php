@@ -49,7 +49,7 @@ function at_try_menu() {
         'Photo Listing', //menu title
         'manage_options', //capabilities
         'Photo_Listing', //menu slug
-        photo_list //function
+        'photo_list' //function
     );
     //adding submenu to a menu
     add_submenu_page('Photo_Listing',//parent page slug
@@ -58,20 +58,6 @@ function at_try_menu() {
         'manage_options',//manage optios
         'Photo_Insert',//slug
         'photo_insert'//function
-    );
-    add_submenu_page( null,//parent page slug
-        'employee_update',//$page_title
-        'Employee Update',// $menu_title
-        'manage_options',// $capability
-        'Employee_Update',// $menu_slug,
-        'employee_update'// $function
-    );
-    add_submenu_page( null,//parent page slug
-        'employee_delete',//$page_title
-        'Employee Delete',// $menu_title
-        'manage_options',// $capability
-        'Employee_Delete',// $menu_slug,
-        'employee_delete'// $function
     );
 }
 
@@ -89,10 +75,9 @@ function datatable_enqueue_script() {
     wp_localize_script( 'photojs', 'ajax_url', admin_url('admin-ajax.php?action=photojs') );
 }
 add_action('wp_enqueue_scripts', 'datatable_enqueue_script');
-add_action( 'admin_enqueue_scripts','datatable_enqueue_script');
+//add_action( 'admin_enqueue_scripts','datatable_enqueue_script');
 
 define('ROOTDIR', plugin_dir_path(__FILE__));
 require_once(ROOTDIR . 'photo_list.php');
 require_once (ROOTDIR.'photo_insert.php');
-//require_once (ROOTDIR.'employee_update.php');
-//require_once (ROOTDIR.'employee_delete.php');
+

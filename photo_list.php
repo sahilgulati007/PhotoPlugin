@@ -7,7 +7,7 @@ function photo_list() {
             <tr>
                 <th>Request</th>
                 <th>Type</th>
-                <th>Title</th>
+                <th style="width: 35%">Title</th>
                 <th>Category</th>
                 <th>Created</th>
                 <th>Status</th>
@@ -25,7 +25,7 @@ function photo_list() {
                 <tr>
                     <td><?= $photo->rid; ?></td>
                     <td><?= $photo->ptype; ?></td>
-                    <td><?= $photo->ptitle; ?></td>
+                    <td style="text-align: left"><?= $photo->ptitle; ?></td>
                     <td><?= $photo->pcategory; ?></td>
                     <td><?= $photo->pcreated; ?></td>
                     <td><?= $photo->pstatus; ?></td>
@@ -35,6 +35,7 @@ function photo_list() {
             <?php } ?>
 
             </tbody>
+            <tr><td colspan="8" style="text-align: right"><a href="<?php echo site_url() ?>/new-request/" class="newbtn"><i class="fa fa-plus"></i>New Request</a></td> </tr>
 
         </table>
     </div>
@@ -43,31 +44,31 @@ function photo_list() {
     </div>
     <div class="photo-wrapper isotope" style="position: relative; overflow: hidden; height: 411px;">
         <div class="photo-block isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
-            <img src="Images/Photos/1.jpg">
+            <img src="<?php echo get_template_directory_uri();?>/Images/Photos/1.jpg">
             <div class="details"><span class="desc">Mountains Sunset</span><span class="date">25-Jun-2015</span></div>
         </div>
         <div class="photo-block isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(295px, 0px, 0px);">
-            <img src="Images/Photos/2.jpg">
+            <img src="<?php echo get_template_directory_uri();?>/Images/Photos/2.jpg">
             <div class="details"><span class="desc">Mountains Sunset</span><span class="date">25-Jun-2015</span></div>
         </div>
         <div class="photo-block isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(590px, 0px, 0px);">
-            <img src="Images/Photos/3.jpg">
+            <img src="<?php echo get_template_directory_uri();?>/Images/Photos/3.jpg">
             <div class="details"><span class="desc">Mountains Sunset</span><span class="date">25-Jun-2015</span></div>
         </div>
         <div class="photo-block isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(885px, 0px, 0px);">
-            <img src="Images/Photos/4.jpg">
+            <img src="<?php echo get_template_directory_uri();?>/Images/Photos/4.jpg">
             <div class="details"><span class="desc">Mountains Sunset</span><span class="date">25-Jun-2015</span></div>
         </div>
         <div class="photo-block isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(590px, 175px, 0px);">
-            <img src="Images/Photos/5.jpg">
+            <img src="<?php echo get_template_directory_uri();?>/Images/Photos/5.jpg">
             <div class="details"><span class="desc">Mountains Sunset</span><span class="date">25-Jun-2015</span></div>
         </div>
         <div class="photo-block isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 203px, 0px);">
-            <img src="Images/Photos/6.jpg">
+            <img src="<?php echo get_template_directory_uri();?>/Images/Photos/6.jpg">
             <div class="details"><span class="desc">Mountains Sunset</span><span class="date">25-Jun-2015</span></div>
         </div>
         <div class="photo-block isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(885px, 203px, 0px);">
-            <img src="Images/Photos/7.jpg">
+            <img src="<?php echo get_template_directory_uri();?>/Images/Photos/7.jpg">
             <div class="details"><span class="desc">Mountains Sunset</span><span class="date">25-Jun-2015</span></div>
         </div>
     </div>
